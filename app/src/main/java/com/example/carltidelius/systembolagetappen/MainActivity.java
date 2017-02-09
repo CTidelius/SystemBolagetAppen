@@ -7,7 +7,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity implements AlcoholTask.AlcoholListener {
     private ListView listView;
     private ArrayAdapter arrayAdapter;
 
@@ -19,8 +21,13 @@ public class MainActivity extends AppCompatActivity {
         arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1);
         listView.setAdapter(arrayAdapter);
 
-        arrayAdapter.add("bajs");
 
 
+        new AlcoholTask(this).execute();
+    }
+
+    @Override
+    public void newAlcohols(ArrayList<String> alcohols) {
+        arrayAdapter.addAll(alcohols);
     }
 }
