@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SystemBolagetAppen</string>
+    <string name="title_activity_alcohol">AlcoholActivity</string>
 </resources>
